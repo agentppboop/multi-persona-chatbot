@@ -1,5 +1,5 @@
-# Simple Multi-Persona ChatBot
-
+# task1:Simple Multi-Persona ChatBot and task2:image classifier
+task2 google colab link:https://colab.research.google.com/drive/1pQeAtBHDyJ2bexpvVV-qSdrXubpWfAQi?usp=sharing
 A simple yet powerful chatbot application built with Streamlit and LangChain that features multiple AI personas and conversation memory.
 
 ## 🚀 Features
@@ -109,33 +109,48 @@ simple-chatbot/
 3. **Model Deprecation**
    - If you encounter model deprecation errors, update the model name in `app.py`
    - Check [Groq's documentation](https://console.groq.com/docs/models) for current models
+# CIFAR-10 Image Classification
 
-## 🤝 Contributing
+## 📌 Overview
+This project implements CIFAR-10 image classification using PyTorch.  
+We compare two approaches:
+- **SimpleCNN** (from scratch)
+- **Pre-trained ResNet18** (transfer learning)
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙋‍♂️ Support
-
-If you encounter any issues or have questions:
-
-1. Check the troubleshooting section above
-2. Open an issue on GitHub
-3. Ensure you're using the latest version
-
-## 🌟 Acknowledgments
-
-- Built with [Streamlit](https://streamlit.io/)
-- Powered by [LangChain](https://langchain.com/)
-- Uses [Groq](https://groq.com/) for fast LLM inference
+We also evaluate the impact of **data augmentation**.
 
 ---
 
-**Happy Chatting! 🤖💬**
+## ⚙️ Model Architectures
+
+### 🔹 SimpleCNN
+- 3 convolutional blocks (Conv → BatchNorm → ReLU → MaxPool)
+- Fully connected layers with Dropout
+- Output layer with 10 classes
+
+### 🔹 ResNet18 (Transfer Learning)
+- Pretrained on ImageNet
+- Backbone frozen
+- Final fully connected layer replaced with 10-class output
+
+---
+
+## 📊 Results
+
+| Model                          | Dataset        | Final Accuracy |
+|--------------------------------|---------------|----------------|
+| CNN from Scratch (No Aug)      | CIFAR-10 Basic | **80.9%** |
+| CNN from Scratch (With Aug)    | CIFAR-10 Aug   | ~ (placeholder) |
+| Pretrained ResNet18 (No Aug)   | CIFAR-10 Basic | ~ (placeholder) |
+| Pretrained ResNet18 (With Aug) | CIFAR-10 Aug   | ~ (placeholder) |
+
+---
+
+## 🔎 Confusion Matrix
+Below is the confusion matrix for **SimpleCNN (No Augmentation)** after training:
+
+![Confusion Matrix](confusion_matrix.png)  
+*(Insert your screenshot here)*
+
+---
+
